@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_171920) do
+ActiveRecord::Schema.define(version: 2020_06_08_222156) do
 
   create_table "dc_comics", force: :cascade do |t|
-    t.string "name"
     t.string "title"
     t.string "hero"
     t.string "heroine"
