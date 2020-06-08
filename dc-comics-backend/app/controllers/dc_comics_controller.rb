@@ -1,0 +1,2 @@
+class DcComicsController < ApplicationController
+end
