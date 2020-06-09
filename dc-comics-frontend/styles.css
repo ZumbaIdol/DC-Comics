@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0;
     padding: 0;
   }
@@ -54,8 +54,10 @@ body {
   button.remove {
     float: right;
     background-color: #E1332D;
-  }
+  } */
   
+
+
   @media only screen and (min-width: 500px) {
     main {
       grid-template-columns: 1fr 1fr;
