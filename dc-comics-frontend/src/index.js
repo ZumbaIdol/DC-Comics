@@ -34,12 +34,13 @@ function createUserCard(user) {
     addComicButton.addEventListener('click', addComic)
 
     const comicList = document.createElement('ul')
-    comicList.id = `user-${user.id}-comic`
+    comicList.id = `user-${user.id}-dc_comic`
     card.appendChild(comicList)
-    main.appendChild(card)
-    for (const comic of user.comics) {
-        displayComic(comic)
+    // main.appendChild(card)
+    for (const dc_comic of user.dc_comics) {
+        displayComic(dc_comic)
     }
+    main.appendChild(card)
 }
 
 function addComic(e) {
@@ -69,3 +70,10 @@ function addComic(e) {
     })
 }
 
+function displayComic(comic) {
+    const comicList = document.getElementById(`user-${dc_comic.user_id}-dc_comic`)
+    const comicLi = document.createElement('li')
+        comicLi.id = `comic-${dc_comic.id}`
+        comicLi.innerText = `${dc_comic.title} (${dc_comic.hero}, ${dc_comic.heroine}, ${dc_comic.villain})`
+
+}
