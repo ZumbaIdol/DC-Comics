@@ -13,9 +13,30 @@ function fetchUsers() {
         return resp.json()
     })
     .then(function(users) {
-        for (const user of users) {
-            makeUserCard(user)
-        }
+        console.log(users)
+        // for (const user of users) {
+        //     createUserCard(user)
+        // }
     })
+}
+
+function createUserCard(user) {
+    const card = document.createElement('div')
+    card.classList += "card"
+    card.setAttribute("data-id", user.id)
+    const userName = document.createElement('p')
+    userName.innerText = user.userName
+    card.appendChild(userName)
+
+    const addComicButton = document.createElement('button')
+    addComicButton.setAttribute("data-user-id", user.id)
+    addComicButton.innerText = "Add Comic"
+    card.appendChild(addComicButton)
+    addComicButton.addEventListener('click', addComic)
+
+    const comicList = document.createElement('ul')
+
+
+
 }
 
