@@ -70,7 +70,7 @@ function addComic(e) {
     })
 }
 
-function displayComic(comic) {
+function displayComic(dc_comic) {
     const comicList = document.getElementById(`user-${dc_comic.user_id}-dc_comic`)
     const comicLi = document.createElement('li')
     comicLi.id = `comic-${dc_comic.id}`
