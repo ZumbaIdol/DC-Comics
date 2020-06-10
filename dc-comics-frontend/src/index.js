@@ -35,8 +35,11 @@ function createUserCard(user) {
     addComicButton.addEventListener('click', addComic)
 
     const comicList = document.createElement('ul')
-
-
-
+    comicList.id = `user-${user.id}-comic`
+    card.appendChild(comicList)
+    main.appendChild(card)
+    for (const comic of user.comics) {
+        displayComic(comic)
+    }
 }
 
