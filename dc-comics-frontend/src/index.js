@@ -13,10 +13,9 @@ function fetchUsers() {
         return resp.json()
     })
     .then(function(users) {
-        console.log(users)
-        // for (const user of users) {
-        //     createUserCard(user)
-        // }
+        for (const user of users) {
+            createUserCard(user)
+        }
     })
 }
 
@@ -40,6 +39,22 @@ function createUserCard(user) {
     main.appendChild(card)
     for (const comic of user.comics) {
         displayComic(comic)
+    }
+}
+
+function addComic(e) {
+    const userId = e.target.dataset.userId
+    const comicData = {
+        userId: userId
+    }
+
+    const objConfig = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(comicData)
     }
 }
 
