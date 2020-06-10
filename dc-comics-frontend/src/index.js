@@ -56,5 +56,16 @@ function addComic(e) {
         },
         body: JSON.stringify(comicData)
     }
+
+    fetch(COMICS_URL, objConfig)
+    .then(function(resp) {
+        if (!resp.ok) {
+            throw Error(resp.status)
+        }
+        return resp.json()
+    })
+    .then(function(comic) {
+        displayComic(comic)
+    })
 }
 
