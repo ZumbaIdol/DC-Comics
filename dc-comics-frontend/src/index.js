@@ -73,7 +73,12 @@ function addComic(e) {
 function displayComic(comic) {
     const comicList = document.getElementById(`user-${dc_comic.user_id}-dc_comic`)
     const comicLi = document.createElement('li')
-        comicLi.id = `comic-${dc_comic.id}`
-        comicLi.innerText = `${dc_comic.title} (${dc_comic.hero}, ${dc_comic.heroine}, ${dc_comic.villain})`
+    comicLi.id = `comic-${dc_comic.id}`
+    comicLi.innerText = `${dc_comic.title} (${dc_comic.hero}, ${dc_comic.heroine}, ${dc_comic.villain})`
+
+    const removeButton = document.createElement('button')
+    removeButton.classList += "remove"
+    removeButton.setAttribute("data-dc_comic-id", dc_comic.id)
+    removeButton.innerText = "Remove"
 
 }
