@@ -81,7 +81,7 @@ function displayComic(dc_comic) {
     removeButton.setAttribute("data-dc_comic-id", dc_comic.id)
     removeButton.innerText = "Remove"
 
-    removeButton.addEventListener('click', removePokemon)
+    removeButton.addEventListener('click', removeComic)
     comicLi.appendChild(removeButton)
     comicList.appendChild(comicLi)
 
