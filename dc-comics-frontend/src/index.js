@@ -62,7 +62,7 @@ function addComic(e) {
     fetch(COMICS_URL, objConfig)
     .then(function(resp) {
         if (!resp.ok) {
-            throw Error(resp.status)
+            throw Error(resp.statusText)
         }
         return resp.json()
     })
