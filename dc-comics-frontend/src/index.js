@@ -66,8 +66,8 @@ function addComic(e) {
         }
         return resp.json()
     })
-    .then(function(comic) {
-        displayComic(comic)
+    .then(function(dc_comic) {
+        displayComic(dc_comic)
     })
 }
 
