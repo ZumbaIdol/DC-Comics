@@ -11,7 +11,6 @@ class DcComicsController < ApplicationController
 
     def create
         user = User.find_by_id(params['userId'])
-        name = Faker::DcComics.name
         title = Faker::DcComics.title
         hero = Faker::DcComics.hero
         heroine = Faker::DcComics.heroine
