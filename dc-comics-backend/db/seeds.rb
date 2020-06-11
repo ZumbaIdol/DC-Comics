@@ -38,6 +38,6 @@ users_name = [
         heroine = Faker::DcComics.heroine
         villain = Faker::DcComics.villain
 
-        DcComic.create(name: name, title: title, hero: hero, heroine: heroine, villain: villain, user_id: user.id)
+        DcComic.create(title: title, hero: hero, heroine: heroine, villain: villain, user_id: user.id)
       end
     end

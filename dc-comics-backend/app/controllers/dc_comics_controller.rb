@@ -16,7 +16,7 @@ class DcComicsController < ApplicationController
         heroine = Faker::DcComics.heroine
         villain = Faker::DcComics.villain
         dc_comic = user.dc_comics.build(title: title, hero: hero, heroine: heroine, villain: villain)
-        if dc_comics.save
+        if dc_comic.save
             render json: dc_comic
         else
             render json: dc_comic, status: 500
