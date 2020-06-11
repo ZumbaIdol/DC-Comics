@@ -24,8 +24,8 @@ class DcComicsController < ApplicationController
     end
 
     def destroy
-        comic = DcComic.find_by(id: params[:id])
-        comic.destroy
-        render json: comic
+        dc_comic = DcComic.find_by(id: params[:id])
+        dc_comic.destroy
+        render json: dc_comic
     end
 end

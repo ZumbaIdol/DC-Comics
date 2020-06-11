@@ -102,7 +102,7 @@ function removeComic(e) {
             return resp.json()
         })
         .then(function(dc_comic) {
-            const removeComic = document.getElementById(`comic-${dc_comic.id}`)
+            const removedComic = document.getElementById(`comic-${dc_comic.id}`)
             removedComic.remove()
         })
 }
