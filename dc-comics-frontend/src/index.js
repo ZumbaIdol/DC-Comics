@@ -35,13 +35,13 @@ function createUserCard(user) {
 
     const comicList = document.createElement('ul')
     comicList.id = `user-${user.id}-dc_comic`
-    // card.appendChild(comicList)
-    // main.appendChild(card)
+    card.appendChild(comicList)
+    main.appendChild(card)
     for (const dc_comic of user.dc_comics) {
         displayComic(dc_comic)
     }
-    card.appendChild(comicList)
-    main.appendChild(card)
+    // card.appendChild(comicList)
+    // main.appendChild(card)
 }
 
 function addComic(e) {
@@ -102,7 +102,7 @@ function removeComic(e) {
             return resp.json()
         })
         .then(function(dc_comic) {
-            const removeComic = document.getElementById(`dc_comic-${dc_comic.id}`)
+            const removeComic = document.getElementById(`comic-${dc_comic.id}`)
             removedComic.remove()
         })
 }
