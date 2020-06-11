@@ -15,6 +15,6 @@ class DcComicsController < ApplicationController
         hero = Faker::DcComics.hero
         heroine = Faker::DcComics.heroine
         villain = Faker::DcComics.villain
-        comic = user.dc_comics.build(name: name, hero: hero, heroine:, heroine, villain: villain)
+        comic = user.dc_comics.build(title: title, hero: hero, heroine:, heroine, villain: villain)
     end
 end
