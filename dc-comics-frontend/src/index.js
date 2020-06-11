@@ -35,11 +35,12 @@ function createUserCard(user) {
 
     const comicList = document.createElement('ul')
     comicList.id = `user-${user.id}-dc_comic`
-    card.appendChild(comicList)
+    // card.appendChild(comicList)
     // main.appendChild(card)
     for (const dc_comic of user.dc_comics) {
         displayComic(dc_comic)
     }
+    card.appendChild(comicList)
     main.appendChild(card)
 }
 
@@ -84,5 +85,4 @@ function displayComic(dc_comic) {
     removeButton.addEventListener('click', removeComic)
     comicLi.appendChild(removeButton)
     comicList.appendChild(comicLi)
-
 }
