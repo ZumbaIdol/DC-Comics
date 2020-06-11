@@ -50,7 +50,7 @@ function addComic(e) {
         userId: userId
     }
 
-    const objConfig = {
+    const configObj = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ function addComic(e) {
         body: JSON.stringify(comicData)
     }
 
-    fetch(COMICS_URL, objConfig)
+    fetch(COMICS_URL, configObj)
     .then(function(resp) {
         if (!resp.ok) {
             throw Error(resp.statusText)
@@ -85,4 +85,24 @@ function displayComic(dc_comic) {
     removeButton.addEventListener('click', removeComic)
     comicLi.appendChild(removeButton)
     comicList.appendChild(comicLi)
+}
+
+function removeComic(e) {
+    const dc_comicId = e.target.dataset.dc_comicId
+    const configObj = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    }
+
+    fetch(`${COMICS_URL}/${dc_comicId}`, configObj )
+        .then(function(resp) {
+            return resp.json()
+        })
+        .then(function(dc_comic) {
+            const removeComic = document.getElementById(`dc_comic-${dc_comicId.id}`)
+
+        })
 }
