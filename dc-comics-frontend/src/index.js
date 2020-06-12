@@ -1,9 +1,33 @@
+// const { json } = require("body-parser")
+
 const BASE_URL = 'http://localhost:3000'
 const USERS_URL = `${BASE_URL}/users`
 const COMICS_URL = `${BASE_URL}/dc_comics`
 const main = document.querySelector('main')
 
+function addUser(e) {
+    const name = e.target.querySelector('#new-user').value
+    const userData = {
+        name: name
+    }
+    const configObj = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(userData)
+    }
+    fetch(USERS_URL, configObj)
+    .then(resp => resp.json())
+    .then(user => {
+        console.log(user)
+    })  
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    const userForm = document.querySelector('#user-container')
+    userForm.addEventListener('submit', addUser)
     fetchUsers()
 })
 
@@ -17,22 +41,6 @@ function fetchUsers() {
             createUserCard(user)
         }
     })
-
-    function addUser(e) {
-        const user = e.target.dataset.user
-        const userData = {
-            user: user
-        }
-    
-        const configObj = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(userData)
-        }
-    }
 
 function createUserCard(user) {
     const card = document.createElement('div')

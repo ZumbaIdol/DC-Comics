@@ -8,9 +8,9 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    grid-gap: 25px;
-    padding-top: 15px;
-    padding-bottom: 35px;
+    grid-gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
   }
   
   div.card {
@@ -55,7 +55,6 @@
     margin-top: 20px;
     padding-top: 20px;
   }
-
 
   @media only screen and (min-width: 500px) {
     main {
