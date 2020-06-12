@@ -118,4 +118,5 @@ function removeComic(e) {
             const removedComic = document.getElementById(`comic-${dc_comic.id}`)
             removedComic.remove()
         })
+    }
 }
