@@ -18,11 +18,6 @@ function addUser(e) {
         },
         body: JSON.stringify(userData)
     }
-    fetch(USERS_URL, configObj)
-    .then(resp => resp.json())
-    .then(user => {
-        console.log(user)
-    })  
 }
 
 document.addEventListener('DOMContentLoaded', function() {
