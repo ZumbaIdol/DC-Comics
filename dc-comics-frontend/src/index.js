@@ -39,7 +39,7 @@ function createUserCard(user) {
     card.classList += "card"
     card.setAttribute("data-id", user.id)
     const userName = document.createElement('p')
-    userName.innerText = user.userName
+    userName.innerText = user.name
     card.appendChild(userName)
 
     const addComicButton = document.createElement('button')

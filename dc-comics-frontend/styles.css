@@ -1,17 +1,7 @@
-/* body {
+ body {
     margin: 0;
     padding: 0;
-  }
-  
-  header {
     background-color: #daa520;
-    margin: 0 auto;
-    height: 50px;
-  }
-  
-  header h2 {
-    padding: 10px;
-    margin: 0;
   }
   
   main {
@@ -24,7 +14,7 @@
   }
   
   div.card {
-    background-color: #a77b7b;
+    background-color: #7ba796;
     height: 250px;
     width: 300px;
     box-shadow: 10px 10px rgba(128, 128, 128, 0.274);
@@ -54,8 +44,17 @@
   button.remove {
     float: right;
     background-color: #E1332D;
-  } */
+  } 
+
+  .branding {
+    clear: both;
+  }
   
+  footer.branding {
+    border-top: 2px solid #ccc;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
 
 
   @media only screen and (min-width: 500px) {
