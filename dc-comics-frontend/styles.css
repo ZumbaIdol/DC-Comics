@@ -14,18 +14,18 @@
   }
   
   div.card {
-    background-color: whitesmoke;
+    background-color: lightgray;
     height: auto;
     width: auto;
     box-shadow: 10px 10px rgba(128, 128, 128, 0.274);
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 10px;
   }
   
   p {
     font-size: 1.5em;
-    color: blue;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: goldenrod;
+    font-family: 'Flamenco', 'Arial Narrow', Arial, sans-serif;
   }
   
   li {
@@ -38,7 +38,7 @@
     font-size: .65em;
     color: #fff;
     background-color: green;
-    border-radius: 15px;
+    border-radius: 10px;
   }
   
   button.remove {
