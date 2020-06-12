@@ -32,7 +32,6 @@ users_name = [
     collection_size = (SecureRandom.random_number(5) + 1).floor
 
     (1..collection_size).each do |comic|
-        name = Faker::DcComics.name
         title = Faker::DcComics.title
         hero = Faker::DcComics.hero
         heroine = Faker::DcComics.heroine

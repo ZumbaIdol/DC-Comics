@@ -17,7 +17,22 @@ function fetchUsers() {
             createUserCard(user)
         }
     })
-}
+
+    function addUser(e) {
+        const user = e.target.dataset.user
+        const userData = {
+            user: user
+        }
+    
+        const configObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        }
+    }
 
 function createUserCard(user) {
     const card = document.createElement('div')
@@ -40,8 +55,6 @@ function createUserCard(user) {
     for (const dc_comic of user.dc_comics) {
         displayComic(dc_comic)
     }
-    // card.appendChild(comicList)
-    // main.appendChild(card)
 }
 
 function addComic(e) {
