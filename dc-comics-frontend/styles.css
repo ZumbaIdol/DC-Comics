@@ -8,6 +8,10 @@
     display: block;
     text-align: center;
   }
+
+  div.user-container {
+    margin: 0 auto;
+  }
   
   main {
     display: grid;
