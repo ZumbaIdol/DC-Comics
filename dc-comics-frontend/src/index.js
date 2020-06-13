@@ -18,6 +18,17 @@ function addUser(e) {
         },
         body: JSON.stringify(userData)
     }
+
+    fetch(USERS_URL, configObj)
+    .then(function(resp) {
+        if (!resp.ok) {
+            throw Error(resp.statusText)
+        }
+        return resp.json()
+    })
+    .then(function(createUserCard) {
+        createUserCard()
+    })
 }
 
 document.addEventListener('DOMContentLoaded', function() {

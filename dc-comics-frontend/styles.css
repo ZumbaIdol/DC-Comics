@@ -12,6 +12,11 @@
   div.user-container {
     margin: 0 auto;
   }
+
+  div.villains-container {
+    display: block;
+    text-align: center;
+  }
   
   main {
     display: grid;
