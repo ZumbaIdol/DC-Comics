@@ -7,6 +7,7 @@
   div.container {
     display: block;
     text-align: center;
+    padding-top: 10px;
   }
 
   div.user-container {
@@ -40,6 +41,7 @@
 
   section {
     text-align: center;
+    padding: 15px 20px;
   }
   
   p {
@@ -73,6 +75,7 @@
   footer.branding {
     border-top: 2px solid #ccc;
     margin-top: 20px;
+    margin-bottom: 20px;
     padding-top: 20px;
   }
 
