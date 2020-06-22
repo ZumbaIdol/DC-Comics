@@ -1,10 +1,9 @@
-// const { json } = require("body-parser")
-
 const BASE_URL = 'http://localhost:3000'
 const USERS_URL = `${BASE_URL}/users`
 const COMICS_URL = `${BASE_URL}/dc_comics`
 const main = document.querySelector('main')
 
+// Can I add a class User here with a constructor and properties?
 function addUser(e) {
     const name = e.target.querySelector('#new-user').value
     const userData = {
@@ -71,6 +70,7 @@ function createUserCard(user) {
     }
 }
 
+// Can I add a class Comic here with a constructor and properties?
 function addComic(e) {
     const userId = e.target.dataset.userId
     const comicData = {
