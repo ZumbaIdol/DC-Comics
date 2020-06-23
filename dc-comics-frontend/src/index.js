@@ -3,7 +3,6 @@ const USERS_URL = `${BASE_URL}/users`
 const COMICS_URL = `${BASE_URL}/dc_comics`
 const main = document.querySelector('main')
 
-// Can I add a class User here with a constructor and properties?
 function addUser(e) {
     const name = e.target.querySelector('#new-user').value
     const userData = {
@@ -43,6 +42,8 @@ function fetchUsers() {
     })
     .then(function(users) {
         for (const user of users) {
+            // debugger
+            const newUser = new User(user)
             createUserCard(user)
         }
     })
@@ -70,7 +71,6 @@ function createUserCard(user) {
     }
 }
 
-// Can I add a class Comic here with a constructor and properties?
 function addComic(e) {
     const userId = e.target.dataset.userId
     const comicData = {
