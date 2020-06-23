@@ -1,7 +1,7 @@
 class User {
     static all = []
     constructor(user) {
-        this.id = id
+        this.id = user.id
         this.name = user.name
         User.all.push(this)
     }

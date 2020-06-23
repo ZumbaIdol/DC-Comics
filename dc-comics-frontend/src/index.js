@@ -67,7 +67,7 @@ function createUserCard(user) {
     card.appendChild(comicList)
     main.appendChild(card)
     for (const dc_comic of user.dc_comics) {
-        debugger
+        // debugger
         const newComic = new DcComic(dc_comic)
         displayComic(dc_comic)
     }
