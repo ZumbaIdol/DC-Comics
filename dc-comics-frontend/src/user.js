@@ -1,8 +1,8 @@
 class User {
     static all = []
-    constructor(data) {
-        this.id = data.id
-        this.name = data.name
+    constructor(user) {
+        this.id = id
+        this.name = user.name
         User.all.push(this)
     }
     
@@ -16,5 +16,39 @@ class User {
         </ul>
         </div `
     }
+
+     addUser(e) {
+        fetch(USERS_URL, configObj)
+        .then(function(resp) {
+        if (!resp.ok) {
+            throw Error(resp.statusText)
+        }
+            return resp.json()
+        })
+        .then(function(createUserCard) {
+            createUserCard()
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const userForm = document.querySelector('#user-container')
+        userForm.addEventListener('submit', addUser)
+        fetchUsers()
+            })
+        })
+    }
+
+    fetchUsers() {
+        fetch(USERS_URL)
+        .then(function(resp) {
+            return resp.json()
+        })
+        .then(function(users) {
+            for (const user of users) {
+                // debugger
+                const newUser = new User(user)
+                createUserCard(user)
+            }
+        })
+    }
 }
+
 

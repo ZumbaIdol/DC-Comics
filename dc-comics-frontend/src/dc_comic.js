@@ -1,11 +1,11 @@
 class DcComic {
     static all = []
-    constructor(data) {
-        this.id = data.id
-        this.title = data.title
-        this.hero = data.hero
-        this.heroine = data.heroine
-        this.villain = data.villain
+    constructor(dc_comic) {
+        this.id = dc_comic.id
+        this.title = dc_comic.title
+        this.hero = dc_comic.hero
+        this.heroine = dc_comic.heroine
+        this.villain = dc_comic.villain
         DcComic.all.push(this)
     }
 }
