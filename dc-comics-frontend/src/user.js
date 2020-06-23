@@ -9,8 +9,12 @@ class User {
     createUserCard() {
         return `
         <div data-id=${this.id}>
-        <p>${this.user.name}</p>
-        <button data-user-id=${this.user.id}>Add Comic</button>`
+        <p>${this.name}</p>
+        <button data-user-id=${this.id}>Add Comic</button>
+        <ul id=user-${this.id}-dc_comic
+        <li id=comic-${this.id}</li>
+        </ul>
+        </div `
     }
 }
 
