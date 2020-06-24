@@ -14,7 +14,7 @@ class DcComic {
     displayComic() {
         debugger
         return `
-        <li id=comic-"${this.id}">"${dc_comic.title}" ("${dc_comic.hero}" "${dc_comic.heroine}" "${dc_comic.villain}"</li>
+        <li id=comic-"${this.id}">"${this.title}" ("${this.hero}" "${this.heroine}" "${this.villain}"</li>
         <button id=data-dc_comic-id"${this.id}">Remove Comic></button>`
     }
     
