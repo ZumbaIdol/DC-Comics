@@ -8,4 +8,6 @@ class DcComic {
         this.villain = dc_comic.villain
         DcComic.all.push(this)
     }
+
+    
 }

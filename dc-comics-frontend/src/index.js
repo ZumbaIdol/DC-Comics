@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchUsers()
 })
 
+
 function fetchUsers() {
     fetch(USERS_URL)
     .then(function(resp) {
@@ -44,34 +45,34 @@ function fetchUsers() {
         for (const user of users) {
             // debugger
             const newUser = new User(user)
-            createUserCard(user)
+            createUserCard()
         }
     })
 
-function createUserCard(user) {
-    const card = document.createElement('div')
-    card.classList += "card"
-    card.setAttribute("data-id", user.id)
-    const userName = document.createElement('p')
-    userName.innerText = user.name
-    card.appendChild(userName)
+// function createUserCard(user) {
+//     const card = document.createElement('div')
+//     card.classList += "card"
+//     card.setAttribute("data-id", user.id)
+//     const userName = document.createElement('p')
+//     userName.innerText = user.name
+//     card.appendChild(userName)
 
-    const addComicButton = document.createElement('button')
-    addComicButton.setAttribute("data-user-id", user.id)
-    addComicButton.innerText = "Add Comic"
-    card.appendChild(addComicButton)
-    addComicButton.addEventListener('click', addComic)
+//     const addComicButton = document.createElement('button')
+//     addComicButton.setAttribute("data-user-id", user.id)
+//     addComicButton.innerText = "Add Comic"
+//     card.appendChild(addComicButton)
+//     addComicButton.addEventListener('click', addComic)
 
-    const comicList = document.createElement('ul')
-    comicList.id = `user-${user.id}-dc_comic`
-    card.appendChild(comicList)
-    main.appendChild(card)
-    for (const dc_comic of user.dc_comics) {
-        // debugger
-        const newComic = new DcComic(dc_comic)
-        displayComic(dc_comic)
-    }
-}
+//     const comicList = document.createElement('ul')
+//     comicList.id = `user-${user.id}-dc_comic`
+//     card.appendChild(comicList)
+//     main.appendChild(card)
+//     for (const dc_comic of user.dc_comics) {
+//         // debugger
+//         const newComic = new DcComic(dc_comic)
+//         displayComic(dc_comic)
+//     }
+// }
 
 function addComic(e) {
     const userId = e.target.dataset.userId
