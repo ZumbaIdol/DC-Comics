@@ -45,7 +45,7 @@ function fetchUsers() {
         for (const user of users) {
             // debugger
             const newUser = new User(user)
-            createUserCard()
+            newUser.createUserCard()
         }
     })
 
@@ -67,12 +67,12 @@ function fetchUsers() {
 //     comicList.id = `user-${user.id}-dc_comic`
 //     card.appendChild(comicList)
 //     main.appendChild(card)
-//     for (const dc_comic of user.dc_comics) {
-//         // debugger
-//         const newComic = new DcComic(dc_comic)
-//         displayComic(dc_comic)
-//     }
-// }
+    // for (const dc_comic of user.dc_comics) {
+    //     // debugger
+    //     const newComic = new DcComic(dc_comic)
+    //     newComic.displayComic()
+    // }
+}
 
 function addComic(e) {
     const userId = e.target.dataset.userId
@@ -97,25 +97,28 @@ function addComic(e) {
         return resp.json()
     })
     .then(function(dc_comic) {
-        displayComic(dc_comic)
-    })
-}
+        for (const dc_comic of user.dc_comics) {
+            // debugger
+            const newComic = new DcComic(dc_comic)
+            newComic.displayComic()
+        }
+    },
 
-function displayComic(dc_comic) {
-    const comicList = document.getElementById(`user-${dc_comic.user_id}-dc_comic`)
-    const comicLi = document.createElement('li')
-    comicLi.id = `comic-${dc_comic.id}`
-    comicLi.innerText = `${dc_comic.title} (${dc_comic.hero}, ${dc_comic.heroine}, ${dc_comic.villain})`
+// function displayComic(dc_comic) {
+//     const comicList = document.getElementById(`user-${dc_comic.user_id}-dc_comic`)
+//     const comicLi = document.createElement('li')
+//     comicLi.id = `comic-${dc_comic.id}`
+//     comicLi.innerText = `${dc_comic.title} (${dc_comic.hero}, ${dc_comic.heroine}, ${dc_comic.villain})`
 
-    const removeButton = document.createElement('button')
-    removeButton.classList += "remove"
-    removeButton.setAttribute("data-dc_comic-id", dc_comic.id)
-    removeButton.innerText = "Remove"
+//     const removeButton = document.createElement('button')
+//     removeButton.classList += "remove"
+//     removeButton.setAttribute("data-dc_comic-id", dc_comic.id)
+//     removeButton.innerText = "Remove"
 
-    removeButton.addEventListener('click', removeComic)
-    comicLi.appendChild(removeButton)
-    comicList.appendChild(comicLi)
-}
+//     removeButton.addEventListener('click', removeComic)
+//     comicLi.appendChild(removeButton)
+//     comicList.appendChild(comicLi)
+// },
 
 function removeComic(e) {
     const dc_comicId = e.target.dataset.dc_comicId
@@ -135,5 +138,5 @@ function removeComic(e) {
             const removedComic = document.getElementById(`comic-${dc_comic.id}`)
             removedComic.remove()
         })
-    }
+    })
 }
