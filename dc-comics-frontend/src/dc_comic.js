@@ -1,7 +1,8 @@
 // console.log('in comic js')
+// debugger
 
 class DcComic {
-    // static all = []
+    static all = []
     constructor(dc_comic) {
         this.id = dc_comic.id
         this.title = dc_comic.title
@@ -12,12 +13,9 @@ class DcComic {
     }
 
     displayComic() {
-        debugger
         return `
         <li id=comic-"${this.id}">"${this.title}" ("${this.hero}" "${this.heroine}" "${this.villain}"</li>
-        <button id=data-dc_comic-id"${this.id}">Remove Comic></button>`
+        <button id=data-dc_comic-id"${this.id}">Remove Comic></button> `
     }
     
 }
-
-DcComic.all = []
