@@ -27,7 +27,7 @@ class User {
       
       <main> 
         <div class="card" data-id="${this.id}"><p>"${this.name}"</p><button data-user-id="${this.id}">Add Comic</button>
-            <ul id="user-"${this.id}"-dc_comic"><li id="${this.dc_comic.id}">Snowbirds Don't Fly (Kilowog, Power Girl, Metallo)<button class="remove" data-dc_comic-id="${this.dc_comic.id}">Remove</button></li> 
+            <ul id="user-"${this.id}"-dc_comic"><li id="${this.dc_comic.id}">Snowbirds Don't Fly (Kilowog, Power Girl, Metallo)> <button class="remove" data-dc_comic-id="${this.dc_comic.id}">Remove</button></li> 
             </ul>
         </div>
       </main> 
