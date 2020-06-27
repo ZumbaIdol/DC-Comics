@@ -3,31 +3,31 @@ const USERS_URL = `${BASE_URL}/users`
 const COMICS_URL = `${BASE_URL}/dc_comics`
 const main = document.querySelector('main')
 
-function addUser(e) {
-    const name = e.target.querySelector('#new-user').value
-    const userData = {
-        name: name
-    }
-    const configObj = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(userData)
-    }
+// function addUser(e) {
+//     const name = e.target.querySelector('#new-user').value
+//     const userData = {
+//         name: name
+//     }
+//     const configObj = {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json'
+//         },
+//         body: JSON.stringify(userData)
+//     }
 
-    fetch(USERS_URL, configObj)
-    .then(function(resp) {
-        if (!resp.ok) {
-            throw Error(resp.statusText)
-        }
-        return resp.json()
-    })
-    .then(function(createUserCard) {
-        createUserCard()
-    })
-}
+//     fetch(USERS_URL, configObj)
+//     .then(function(resp) {
+//         if (!resp.ok) {
+//             throw Error(resp.statusText)
+//         }
+//         return resp.json()
+//     })
+//     .then(function(createUserCard) {
+//         createUserCard()
+//     })
+// }
 
 document.addEventListener('DOMContentLoaded', function() {
     const userForm = document.querySelector('#user-container')
@@ -35,20 +35,21 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchUsers()
 })
 
-function fetchUsers() {
-    fetch(USERS_URL)
-    .then(function(resp) {
-        return resp.json()
-    })
-    .then(function(users) {
-        for (const user of users) {
-            // debugger
-            let newUser = new User(user)
-            newUser.createUserCard()
-            // createUserCard(user)
-        }
-    })
+// function fetchUsers() {
+//     fetch(USERS_URL)
+//     .then(function(resp) {
+//         return resp.json()
+//     })
+//     .then(function(users) {
+//         for (const user of users) {
+//             // debugger
+//             let newUser = new User(user)
+//             newUser.createUserCard()
+//             // createUserCard(user)
+//         }
+//     })
 
+// Put in user class
 function createUserCard(user) {
     const card = document.createElement('div')
     card.classList += "card"
@@ -75,38 +76,39 @@ function createUserCard(user) {
     }
 }
 
-function addComic(e) {
-    const userId = e.target.dataset.userId
-    const comicData = {
-        userId: userId
-    }
+// function addComic(e) {
+//     const userId = e.target.dataset.userId
+//     const comicData = {
+//         userId: userId
+//     }
 
-    const configObj = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(comicData)
-    }
+//     const configObj = {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json'
+//         },
+//         body: JSON.stringify(comicData)
+//     }
 
-    fetch(COMICS_URL, configObj)
-    .then(function(resp) {
-        if (!resp.ok) {
-            throw Error(resp.statusText)
-        }
-        return resp.json()
-    })
-    .then(function(dc_comic) {
-        for (const dc_comic of user.dc_comics) {
-            // debugger
-            const newComic = new DcComic(dc_comic)
-            newComic.displayComic()
-        // displayComic(dc_comic)
-        }
-    })
-}
+//     fetch(COMICS_URL, configObj)
+//     .then(function(resp) {
+//         if (!resp.ok) {
+//             throw Error(resp.statusText)
+//         }
+//         return resp.json()
+//     })
+//     .then(function(dc_comic) {
+//         for (const dc_comic of user.dc_comics) {
+//             // debugger
+//             const newComic = new DcComic(dc_comic)
+//             newComic.displayComic()
+//         // displayComic(dc_comic)
+//         }
+//     })
+// }
 
+// Put in comic class
 function displayComic(dc_comic) {
     const comicList = document.getElementById(`user-${dc_comic.user_id}-dc_comic`)
     const comicLi = document.createElement('li')
@@ -123,24 +125,23 @@ function displayComic(dc_comic) {
     comicList.appendChild(comicLi)
 }
 
-function removeComic(e) {
-    const dc_comicId = e.target.dataset.dc_comicId
-    const configObj = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        }
-    }
+// function removeComic(e) {
+//     const dc_comicId = e.target.dataset.dc_comicId
+//     const configObj = {
+//         method: 'DELETE',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Accept': 'application/json'
+//         }
+//     }
+//     fetch(`${COMICS_URL}/${dc_comicId}`, configObj )
+//         .then(function(resp) {
+//             return resp.json()
+//         })
+//         .then(function(dc_comic) {
+//             const removedComic = document.getElementById(`comic-${dc_comic.id}`)
+//             removedComic.remove()
+//         })
+//     }
 
-    fetch(`${COMICS_URL}/${dc_comicId}`, configObj )
-        .then(function(resp) {
-            return resp.json()
-        })
-        .then(function(dc_comic) {
-            const removedComic = document.getElementById(`comic-${dc_comic.id}`)
-            removedComic.remove()
-        })
-    }
-
-}
+// }

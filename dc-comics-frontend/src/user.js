@@ -6,6 +6,8 @@ class User {
         this.id = user.id
         this.name = user.name
         User.all.push(this)
+        // this.comics = []
+        //  push comics here where I have access to them
     }
 
     createUserCard() {
