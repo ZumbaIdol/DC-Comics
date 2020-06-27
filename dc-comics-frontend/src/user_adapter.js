@@ -14,7 +14,14 @@ class UserAdapter {
             },
             body: JSON.stringify(userData)
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const userForm = document.querySelector('#user-container')
+            userForm.addEventListener('submit', addUser)
+            fetchUsers()
+        })
     }
+
 
     fetchUsers() {
         fetch(USERS_URL)

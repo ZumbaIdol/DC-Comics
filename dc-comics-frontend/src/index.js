@@ -29,11 +29,11 @@ const main = document.querySelector('main')
 //     })
 // }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const userForm = document.querySelector('#user-container')
-    userForm.addEventListener('submit', addUser)
-    fetchUsers()
-})
+// document.addEventListener('DOMContentLoaded', function() {
+//     const userForm = document.querySelector('#user-container')
+//     userForm.addEventListener('submit', addUser)
+//     fetchUsers()
+// })
 
 // function fetchUsers() {
 //     fetch(USERS_URL)
