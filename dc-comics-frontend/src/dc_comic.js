@@ -4,7 +4,7 @@
 class DcComic {
     static all = []
     constructor(dc_comic) {
-        this.id = dc_comic.id
+        this.dc_comic.id = dc_comic.id
         this.title = dc_comic.title
         this.hero = dc_comic.hero
         this.heroine = dc_comic.heroine
@@ -14,8 +14,8 @@ class DcComic {
 
     displayComic() {
         return `
-        <li id=comic-"${this.id}">"${this.title}" ("${this.hero}" "${this.heroine}" "${this.villain}"</li>
-        <button id=data-dc_comic-id"${this.id}">Remove Comic></button> `
+        <li id=comic-"${this.dc_comic.id}">"${this.title}" ("${this.hero}" "${this.heroine}" "${this.villain}"</li>
+        <button id=data-dc_comic-id"${this.dc_comic.id}">Remove Comic></button> `
     }
     
 }
