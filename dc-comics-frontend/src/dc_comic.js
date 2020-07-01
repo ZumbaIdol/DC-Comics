@@ -13,9 +13,18 @@ class DcComic {
     }
 
     displayComic() {
-        return `
-        <li id=comic-"${this.dc_comic.id}">"${this.title}" ("${this.hero}" "${this.heroine}" "${this.villain}"</li>
-        <button id=data-dc_comic-id"${this.dc_comic.id}">Remove Comic></button> `
+        const comicList = document.getElementById(`user-"${this.dc_comic.user_id}"-dc_comic`)
+        const comicLi = document.createElement('li')
+        comicLi.id = `comic-"${this.dc_comic.id}"`
+        comicLi.innerText = `"${this.dc_comic.title}" ("${this.dc_comic.hero}", "${this.dc_comic.heroine}", "${this.dc_comic.villain}")`
+        
+        const removeButton = document.createElement('button')
+        removeButton.classList += "remove"
+        removeButton.setAttribute("data-dc_comic-id", this.dc_comic.id)
+        removeButton.innerText = "Remove"
+        
+        removeButton.addEventListener('click', removeComic)
+        comicLi.appendChild(removeButton)
+        comicList.appendChild(comicLi)
     }
-    
 }
