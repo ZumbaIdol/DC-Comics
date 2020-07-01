@@ -3,6 +3,8 @@ const USERS_URL = `${BASE_URL}/users`
 const COMICS_URL = `${BASE_URL}/dc_comics`
 const main = document.querySelector('main')
 
+const userAdapt = new UserAdapter
+
 // function addUser(e) {
 //     const name = e.target.querySelector('#new-user').value
 //     const userData = {
@@ -29,11 +31,10 @@ const main = document.querySelector('main')
     // })
 
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const userForm = document.querySelector('#user-container')
-//     userForm.addEventListener('submit', addUser)
-//     fetchUsers()
-// })
+document.addEventListener('DOMContentLoaded', function(event) {
+    const userForm = document.querySelector('#user-container')
+    userForm.addEventListener('submit', userAdapt.addUser)
+})
 
 // function fetchUsers() {
 //     fetch(USERS_URL)

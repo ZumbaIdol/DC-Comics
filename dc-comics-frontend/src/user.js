@@ -10,8 +10,8 @@ class User {
     }
 
     createUserCard() {
+        console.log("I'm in create user card")
         const card = document.createElement('div')
-        debugger
         card.classList += "card"
         card.setAttribute("data-id", this.id)
         const userName = document.createElement('p')
@@ -36,7 +36,7 @@ class User {
     }
 
 
-    addComic(e) {
+    static addComic(e) {
       const userId = e.target.dataset.userId
       const comicData = {
           userId: userId
@@ -51,7 +51,7 @@ class User {
         body: JSON.stringify(comicData)
     }
   
-    return fetch(COMICS_URL, configObj)
+    fetch(COMICS_URL, configObj)
         .then(function(resp) {
         if (!resp.ok) {
             throw Error(resp.statusText)

@@ -2,10 +2,12 @@
 
 class UserAdapter {
     constructor() {
-        this.USERS_URL = (`"${BASE_URL}"/users`)
+        this.USERS_URL = (`${BASE_URL}/users`)
     }
 
     addUser(e) {
+    e.preventDefault()
+    console.log("I'm in user adapter")
     const name = e.target.querySelector('#new-user').value
     const userData = {
         name: name
@@ -19,15 +21,16 @@ class UserAdapter {
         body: JSON.stringify(userData)
     }
 
-    return fetch(this.USERS_URL, configObj)
+    fetch('http://localhost:3000/users', configObj)
     .then(function(resp) {
         if (!resp.ok) {
             throw Error(resp.statusText)
         }
         return resp.json()
     })
-    .then(function(createUserCard) {
-        createUserCard()
+    .then(function(json) {
+        const user = new User(json)
+        user.createUserCard()
     })
     
 
