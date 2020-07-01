@@ -2,7 +2,7 @@
 
 class UserAdapter {
     constructor() {
-        this.USERS_URL = (`${BASE_URL}/users`)
+        this.USERS_URL = (`"${BASE_URL}"/users`)
     }
 
     addUser(e) {
@@ -29,6 +29,7 @@ class UserAdapter {
     .then(function(createUserCard) {
         createUserCard()
     })
+    
 
 
 //     document.addEventListener('DOMContentLoaded', function() {
