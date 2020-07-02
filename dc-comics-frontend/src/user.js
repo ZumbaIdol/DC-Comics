@@ -10,7 +10,6 @@ class User {
     }
 
     createUserCard() {
-        console.log("I'm in create user card")
         const card = document.createElement('div')
         card.classList += "card"
         card.setAttribute("data-id", this.id)
@@ -22,13 +21,14 @@ class User {
         addComicButton.setAttribute("data-user-id", this.id)
         addComicButton.innerText = "Add Comic"
         card.appendChild(addComicButton)
-        addComicButton.addEventListener('click', addComic)
+        // Error on line 25 is like the other undefined errors; call instance of addComic on User class
+        addComicButton.addEventListener('click', userAdapt.addComic)
           
         const comicList = document.createElement('ul')
         comicList.id = `user-"${this.id}"-dc_comic`
         card.appendChild(comicList)
         main.appendChild(card)
-        for (const dc_comic of this.user.dc_comics) {
+        for (const dc_comic of this.dc_comics) {
             let newComic = new DcComic(dc_comic)
             newComic.displayComic()
             // displayComic(dc_comic) 
@@ -79,7 +79,7 @@ class User {
         }
     }
 
-    return fetch(`${COMICS_URL}/"${dc_comicId}"`, configObj )
+    fetch("http://localhost:3000/dc_comics"`"${dc_comicId}"`, configObj)
         .then(function(resp) {
             return resp.json()
         })

@@ -7,7 +7,6 @@ class UserAdapter {
 
     addUser(e) {
     e.preventDefault()
-    console.log("I'm in user adapter")
     const name = e.target.querySelector('#new-user').value
     const userData = {
         name: name
