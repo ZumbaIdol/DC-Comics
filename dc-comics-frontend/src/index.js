@@ -34,22 +34,23 @@ const userAdapt = new UserAdapter
 document.addEventListener('DOMContentLoaded', function(event) {
     const userForm = document.querySelector('#user-container')
     userForm.addEventListener('submit', userAdapt.addUser)
+    fetchUsers()
 })
 
-// function fetchUsers() {
-//     fetch(USERS_URL)
-//     .then(function(resp) {
-//         return resp.json()
-//     })
-//     .then(function(users) {
-//         for (const user of users) {
-//             // debugger
-//             let newUser = new User(user)
-//             newUser.createUserCard()
-//             // createUserCard(user)
-//         }
-//     })
-// }
+function fetchUsers() {
+    fetch(USERS_URL)
+    .then(function(resp) {
+        return resp.json()
+    })
+    .then(function(users) {
+        for (const user of users) {
+            // debugger
+            let newUser = new User(user)
+            newUser.createUserCard()
+            // createUserCard(user)
+        }
+    })
+}
 
 // Put in user class
 // function createUserCard(user) {

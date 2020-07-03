@@ -37,6 +37,7 @@ class User {
 
 
     static addComic(e) {
+    //   e.preventDefault()
       const userId = e.target.dataset.userId
       const comicData = {
           userId: userId
@@ -59,7 +60,7 @@ class User {
         return resp.json()
         })
         .then(function(dc_comic) {
-        for (const dc_comic of this.user.dc_comics) {
+        for (const dc_comic of user.dc_comics) {
             // debugger
             const newComic = new DcComic(dc_comic)
             newComic.displayComic()
@@ -68,8 +69,24 @@ class User {
     })
 }
 
+displayComic() {
+    const comicList = document.getElementById(`user-"${this.dc_comic.user_id}"-dc_comic`)
+    const comicLi = document.createElement('li')
+    comicLi.id = `comic-"${this.dc_comic.id}"`
+    comicLi.innerText = `"${this.dc_comic.title}" ("${this.dc_comic.hero}", "${this.dc_comic.heroine}", "${this.dc_comic.villain}")`
+    
+    const removeButton = document.createElement('button')
+    removeButton.classList += "remove"
+    removeButton.setAttribute("data-dc_comic-id", this.dc_comic.id)
+    removeButton.innerText = "Remove"
+    
+    removeButton.addEventListener('click', userAdapt.removeComic)
+    comicLi.appendChild(removeButton)
+    comicList.appendChild(comicLi)
+}
 
-  removeComic(e) {
+  static removeComic(e) {
+    // e.preventDefault()
     const dc_comicId = e.target.dataset.dc_comicId
     const configObj = {
         method: 'DELETE',
@@ -79,12 +96,12 @@ class User {
         }
     }
 
-    fetch("http://localhost:3000/dc_comics"`"${dc_comicId}"`, configObj)
+    fetch(`${COMICS_URL}/"${dc_comicId}"`, configObj )
         .then(function(resp) {
             return resp.json()
         })
         .then(function(dc_comic) {
-            const removedComic = document.getElementById(`comic-"${dc_comic.id}"`)
+            const removedComic = document.getElementById(`comic-"${this.dc_comic.id}"`)
             removedComic.remove() 
         })
     }
