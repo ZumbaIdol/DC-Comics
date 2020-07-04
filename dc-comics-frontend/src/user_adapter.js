@@ -20,7 +20,7 @@ class UserAdapter {
         body: JSON.stringify(userData)
     }
 
-    fetch('http://localhost:3000/users', configObj)
+    fetch(USERS_URL, configObj)
     .then(function(resp) {
         if (!resp.ok) {
             throw Error(resp.statusText)
@@ -31,6 +31,8 @@ class UserAdapter {
         const user = new User(json)
         user.createUserCard()
     })
+
+    
     
 
 

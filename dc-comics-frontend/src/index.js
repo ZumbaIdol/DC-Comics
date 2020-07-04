@@ -4,6 +4,7 @@ const COMICS_URL = `${BASE_URL}/dc_comics`
 const main = document.querySelector('main')
 
 const userAdapt = new UserAdapter
+const comicAdapt = new ComicAdapter
 
 // function addUser(e) {
 //     const name = e.target.querySelector('#new-user').value
@@ -31,7 +32,7 @@ const userAdapt = new UserAdapter
     // })
 
 
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('DOMContentLoaded', function() {
     const userForm = document.querySelector('#user-container')
     userForm.addEventListener('submit', userAdapt.addUser)
     fetchUsers()

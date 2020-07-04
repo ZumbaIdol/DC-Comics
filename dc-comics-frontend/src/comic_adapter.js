@@ -4,39 +4,39 @@ class ComicAdapter {
     constructor() {
         this.COMICS_URL = (`${BASE_URL}/dc_comics`)
     }
-}
+// }
 
-//     addComic(e) {
-//         const userId = e.target.dataset.userId
-//         const comicData = {
-//             userId: userId
-//         }
+    addComic(e) {
+        const userId = e.target.dataset.userId
+        const comicData = {
+            userId: userId
+        }
     
-//         const configObj = {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': 'application/json'
-//             },
-//             body: JSON.stringify(comicData)
-//         }
+        const configObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(comicData)
+        }
     
-//         fetch(COMICS_URL, configObj)
-//         .then(function(resp) {
-//             if (!resp.ok) {
-//                 throw Error(resp.statusText)
-//             }
-//             return resp.json()
-//         })
-//         .then(function(dc_comic) {
-//             for (const dc_comic of user.dc_comics) {
-//                 // debugger
-//                 const newComic = new DcComic(dc_comic)
-//                 newComic.displayComic()
-//             // displayComic(dc_comic)
-//             }
-//         })
-//     }
+        fetch(COMICS_URL, configObj)
+        .then(function(resp) {
+            if (!resp.ok) {
+                throw Error(resp.statusText)
+            }
+            return resp.json()
+        })
+        .then(function(dc_comic) {
+            for (const dc_comic of user.dc_comics) {
+                // debugger
+                const newComic = new DcComic(dc_comic)
+                newComic.displayComic()
+            // displayComic(dc_comic)
+            }
+        })
+    }
     
 //     removeComic(e) {
 //     const dc_comicId = e.target.dataset.dc_comicId
@@ -57,4 +57,4 @@ class ComicAdapter {
 //             removedComic.remove()
 //         })
 //     }
-// }
+}

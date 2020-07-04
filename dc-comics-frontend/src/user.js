@@ -22,90 +22,91 @@ class User {
         addComicButton.innerText = "Add Comic"
         card.appendChild(addComicButton)
         // Error on line 25 is like the other undefined errors; call instance of addComic on User class
-        addComicButton.addEventListener('click', userAdapt.addComic)
+        addComicButton.addEventListener('click', comicAdapt.addComic)
           
         const comicList = document.createElement('ul')
         comicList.id = `user-"${this.id}"-dc_comic`
         card.appendChild(comicList)
+        // debugger
         main.appendChild(card)
         for (const dc_comic of this.dc_comics) {
-            let newComic = new DcComic(dc_comic)
+            const newComic = new DcComic(dc_comic)
             newComic.displayComic()
             // displayComic(dc_comic) 
         }
     }
 
 
-    static addComic(e) {
+    // addComic(e) {
     //   e.preventDefault()
-      const userId = e.target.dataset.userId
-      const comicData = {
-          userId: userId
-      }
+    //   const userId = e.target.dataset.userId
+    //   const comicData = {
+    //       userId: userId
+    //   }
   
-      const configObj = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(comicData)
-    }
+    //   const configObj = {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'Accept': 'application/json'
+    //     },
+    //     body: JSON.stringify(comicData)
+    // }
   
-    fetch(COMICS_URL, configObj)
-        .then(function(resp) {
-        if (!resp.ok) {
-            throw Error(resp.statusText)
-        }
-        return resp.json()
-        })
-        .then(function(dc_comic) {
-        for (const dc_comic of user.dc_comics) {
-            // debugger
-            const newComic = new DcComic(dc_comic)
-            newComic.displayComic()
-            // displayComic(dc_comic)
-        }
-    })
-}
+    // fetch(COMICS_URL, configObj)
+    // .then(function(resp) {
+    //     if (!resp.ok) {
+    //         throw Error(resp.statusText)
+    //     }
+    //     return resp.json()
+    // })
+    // .then(function(dc_comic) {
+    //     for (const dc_comic of user.dc_comics) {
+    //         // debugger
+    //         const newComic = new DcComic(dc_comic)
+    //         newComic.displayComic()
+    //     // displayComic(dc_comic)
+    //     }
+    // })
+// }
 
-displayComic() {
-    const comicList = document.getElementById(`user-"${this.dc_comic.user_id}"-dc_comic`)
-    const comicLi = document.createElement('li')
-    comicLi.id = `comic-"${this.dc_comic.id}"`
-    comicLi.innerText = `"${this.dc_comic.title}" ("${this.dc_comic.hero}", "${this.dc_comic.heroine}", "${this.dc_comic.villain}")`
-    
-    const removeButton = document.createElement('button')
-    removeButton.classList += "remove"
-    removeButton.setAttribute("data-dc_comic-id", this.dc_comic.id)
-    removeButton.innerText = "Remove"
-    
-    removeButton.addEventListener('click', userAdapt.removeComic)
-    comicLi.appendChild(removeButton)
-    comicList.appendChild(comicLi)
-}
+    // displayComic() {
+    //     const comicList = document.getElementById(`user-"${this.dc_comic.user_id}"-dc_comic`)
+    //     const comicLi = document.createElement('li')
+    //     comicLi.id = `comic-"${this.dc_comic.id}"`
+    //     comicLi.innerText = `"${this.dc_comic.title}" ("${this.dc_comic.hero}", "${this.dc_comic.heroine}", "${this.dc_comic.villain}")`
+        
+    //     const removeButton = document.createElement('button')
+    //     removeButton.classList += "remove"
+    //     removeButton.setAttribute("data-dc_comic-id", this.dc_comic.id)
+    //     removeButton.innerText = "Remove"
+        
+    //     removeButton.addEventListener('click', userAdapt.removeComic)
+    //     comicLi.appendChild(removeButton)
+    //     comicList.appendChild(comicLi)
+    // }
 
-  static removeComic(e) {
-    // e.preventDefault()
-    const dc_comicId = e.target.dataset.dc_comicId
-    const configObj = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+    removeComic(e) {
+        e.preventDefault()
+        const dc_comicId = e.target.dataset.dc_comicId
+        const configObj = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        }
+
+        fetch(COMICS_URL/`"${this.dc_comicId}"`, configObj )
+            .then(function(resp) {
+                return resp.json()
+            })
+            .then(function(dc_comic) {
+                const removedComic = document.getElementById(`comic-"${this.dc_comic.id}"`)
+                removedComic.remove() 
+            })
         }
     }
-
-    fetch(`${COMICS_URL}/"${dc_comicId}"`, configObj )
-        .then(function(resp) {
-            return resp.json()
-        })
-        .then(function(dc_comic) {
-            const removedComic = document.getElementById(`comic-"${this.dc_comic.id}"`)
-            removedComic.remove() 
-        })
-    }
-}
 
 
 
