@@ -29,23 +29,4 @@ class DcComic {
         comicLi.appendChild(removeButton)
         comicList.appendChild(comicLi)
     }
-
-        // removeComic(e) {
-        // const dc_comicId = e.target.dataset.dc_comicId
-        // const configObj = {
-        //     method: 'DELETE',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Accept': 'application/json'
-        //     }
-        // }
-        // fetch(`${COMICS_URL}/${dc_comicId}`, configObj )
-        //     .then(function(resp) {
-        //         return resp.json()
-        //     })
-        //     .then(function(dc_comic) {
-        //         const removedComic = document.getElementById(`comic-${dc_comic.id}`)
-        //         removedComic.remove()
-        //     })
-        // }
 }
