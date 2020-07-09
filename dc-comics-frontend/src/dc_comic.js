@@ -1,7 +1,3 @@
-// console.log('in comic js')
-// debugger
-
-
 class DcComic {
     static all = []
     constructor(dc_comic) {
