@@ -14,7 +14,7 @@ class DcComic {
         const comicList = document.getElementById(`user-"${this.user_id}"-dc_comic`)
         const comicLi = document.createElement('li')
         comicLi.id = `comic-"${this.id}"`
-        comicLi.innerText = `"${this.title}" ("${this.hero}", "${this.heroine}", "${this.villain}")`
+        comicLi.innerText = `"${this.title}" (${this.hero}, ${this.heroine}, ${this.villain})`
         
         const removeButton = document.createElement('button')
         removeButton.classList += "remove"
